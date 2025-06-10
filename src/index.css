@@ -1,0 +1,92 @@
+.full-name{
+  overflow: hidden;
+  height: 0;
+}
+
+.email{
+  overflow: hidden;
+  height: 0;
+}
+.index{
+  transform: scale(0);
+}
+.con-password,.seartch{
+  height: 0;
+  overflow: hidden;
+  color:#7f4221
+  /* animation-direction: ; */
+  /* animation: scroll 1s ease-out ; */
+}
+
+@keyframes scal {
+  0%{
+    transform: scale(0);
+  }
+   100%{
+    transform: scale(1);
+  }
+}
+@keyframes scalE {
+  0%{
+    transform: scale(1);
+  }
+   100%{
+    transform: scale(0);
+  }
+}
+
+
+@keyframes scroll {
+  0%{
+    height:0;
+  }
+  100%{
+    height:110px;
+
+  }
+}
+@keyframes scrollP {
+  0%{
+    height:0;
+  }
+  100%{
+    height:50px;
+
+  }
+}
+@keyframes scrollB{
+   0%{
+    height:100px;
+  }
+  100%{
+    height:0;
+
+  }
+}
+@keyframes scrollC{
+   0%{
+    height:50px;
+  }
+  100%{
+    height:0;
+
+  }
+}
+@keyframes scrollD{
+   0%{
+    width:0;
+  }
+  100%{
+    width:50%;
+
+  }
+}
+@keyframes scrollE{
+   0%{
+    width:50%;
+  }
+  100%{
+    width:0;
+
+  }
+}
