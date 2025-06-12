@@ -1,10 +1,13 @@
-// import { Link } from 'react-router-dom';
+import {useHistory} from 'react-router-dom'
+
 import back from '../img/latte-art2.jpg'
 
 const Cart = () => {
 
+  const history = useHistory();
 
-    const scale = e => {
+
+    const close = e => {
         const cartDetails = document.querySelector('.cart')
      const warn = e.target.parentElement.parentElement.parentElement;
      warn.style.animation = 'scalE 0.2s ease-in forwards'
@@ -44,9 +47,14 @@ const Cart = () => {
     
         for( let i = 0; i < 4; i++){
            pin.children[i].style.border = '2px solid green'
-           console.log(pin.children[i])
-
          }
+         setTimeout(() => {  const cartDetails = document.querySelector('.cart')
+     const warn = e.target.parentElement.parentElement.parentElement;
+     warn.style.animation = 'scalE 0.2s ease-in forwards'
+     cartDetails.classList.remove('opacity-20')
+     cartDetails.classList.remove('pointer-events-none')
+           history.push('/recipt')
+         }, 2000);
       }
     })
   }
@@ -73,7 +81,7 @@ const Cart = () => {
                             <p className='text-sm my-2'>Art2</p>
                         </div>
                         <p className='text-sm w-[50px]'>$200</p>
-                        <input type="number"  className='w-[40px] outline-none border w-10 rounded-md p-1 text-sm text-center' />
+                        <input type="number"  className='w-[40px] outline-none border rounded-md p-1 text-sm text-center' />
                         <div className='flex items-center justify-between w-[70px]'>
                        <p className=' text-sm'>$200</p>
                        <i className="fa-solid fa-xmark text-xl text-gray-500"></i>
@@ -176,7 +184,7 @@ const Cart = () => {
                   <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-exclamation-triangle-fill w-10 h-10 text-yellow-400 ml-6" viewBox="0 0 16 16">
                      <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5m.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
                   </svg>
-                  <div className='cursor-pointer' title='cansele' onClick={e => scale(e)}>
+                  <div className='cursor-pointer' title='cansele' onClick={e => close(e)}>
                        <i className="fa-solid fa-xmark text-2xl text-gray-500 cursor-pointer" ></i>
 
                   </div>
@@ -204,7 +212,7 @@ const Cart = () => {
                     </div>
                 </div >
                 <div className='pin my-3 flex justify-between items-center w-full gap-2'>
-                    <input onClick={e => pinEntry(e)} type="number" className='w-11 bg-gray-300 rounded-lg p-2 h-11 text-center font-bold '/>
+                    <input onClick={e => pinEntry(e)} type="number" className='w-11 bg-gray-300 rounded-lg p-2 h-11 text-center font-bold outline-white'/>
                     <input  onClick={e => pinEntry(e)} type="number" className='w-11 bg-gray-300 rounded-lg p-2 h-11 text-center font-bold '/>
                     <input  onClick={e => pinEntry(e)} type="number" className='w-11 bg-gray-300 rounded-lg p-2 h-11 text-center font-bold '/>
                     <input  onClick={e => pinEntry(e)} type="number" className='w-11 bg-gray-300 rounded-lg p-2 h-11 text-center font-bold '/>
