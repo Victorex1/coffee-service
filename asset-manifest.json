@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/coffee-service/static/css/main.c274330a.css",
+    "main.js": "/coffee-service/static/js/main.d2da7664.js",
+    "static/media/coffeeB.jpg": "/coffee-service/static/media/coffeeB.8c740890d959b0bdd8d0.jpg",
+    "static/media/latte-art4.jpg": "/coffee-service/static/media/latte-art4.61132120c036f2a78a1a.jpg",
+    "static/media/latte-art6.jpg": "/coffee-service/static/media/latte-art6.7ea4bb422562c2776cca.jpg",
+    "static/media/woman-coffee3.jpg": "/coffee-service/static/media/woman-coffee3.65cd6ae58766d23d4301.jpg",
+    "static/media/latte-art7.jpg": "/coffee-service/static/media/latte-art7.911c2ed7ffd1e41433c5.jpg",
+    "static/media/latte-art3.jpg": "/coffee-service/static/media/latte-art3.198ec3f608eb2a4978ff.jpg",
+    "static/media/latte-art8.jpg": "/coffee-service/static/media/latte-art8.970912899e97af911fdc.jpg",
+    "static/media/latte-art2.jpg": "/coffee-service/static/media/latte-art2.67f53ac2fab4139c9e5f.jpg",
+    "index.html": "/coffee-service/index.html",
+    "main.c274330a.css.map": "/coffee-service/static/css/main.c274330a.css.map",
+    "main.d2da7664.js.map": "/coffee-service/static/js/main.d2da7664.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c274330a.css",
+    "static/js/main.d2da7664.js"
+  ]
+}
