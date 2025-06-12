@@ -128,7 +128,7 @@ setTimeout(() => {
               <p className=' text-2 md:text-lg md:text-white pointer-events-none' >Contact Us</p>
 
              </Link>
-             <Link className=' flex justify-left items-center border-l-4 md:border-l-0  border-gray-300 hover:border-blue-400 md:hover:border-l-0 p-2 md:p-0  md:pb-1  md:mx-2 lg:mx-6 md:hover:border-b-2 md:hover:border-white md:rounded-none' onClick={ e => hid(e)} to='/coffee-service/blog-list'  >
+             <Link className=' flex justify-left items-center border-l-4 md:border-l-0  border-gray-300  hover:border-blue-400 md:hover:border-l-0 p-2 md:p-0  md:pb-1  md:mx-2 lg:mx-6 md:hover:border-b-2 md:hover:border-white md:rounded-none' onClick={ e => hid(e)} to='/coffee-service/blog-list'  >
              <div className='md:hidden'>
               <i className="fa-solid fa-blog mr-4 pointer-events-none md:hidden"></i>
 

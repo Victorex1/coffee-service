@@ -81,7 +81,7 @@ const Contact = () => {
             <h3 className='text-2xl text-gray-700 font-bold sm:text-3xl'>We love to konw your choise</h3>
             <form className='flex w-full flex-col my-7 text-left' action="https://formsubmit.co/ekenebasil21@gmail.com" method='POST'>
                 
-                <div className='grid grid-cols-2 gap-4'>
+                <div className='grid sm:grid-cols-2 gap-4'>
                     <div className='w-auto'>
                  <label for='name1' className='mt-4 sm:text-lg'> Full Name:</label>
                 <input type='text' className='w-full text-xs sm:text-lg bg-transparent border rounded-xl p-2 text-gray-600 outline-none my-3 focus:border-2' name='name' id='name1'/>
@@ -122,7 +122,7 @@ const Contact = () => {
             </form>
         </section>
     </div>
-    
+
    
 </div>
 <div className='py-4 flex justify-center w-screen overflow-hidden'>

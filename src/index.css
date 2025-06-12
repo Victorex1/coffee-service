@@ -13,7 +13,8 @@
 .con-password,.seartch{
   height: 0;
   overflow: hidden;
-  color:#7f4221
+  color:#7f4221;
+  /* color: #96835e; */
   /* animation-direction: ; */
   /* animation: scroll 1s ease-out ; */
 }
