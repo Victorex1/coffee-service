@@ -26,7 +26,7 @@ const Home = () => {
            <div className='absolute top-30 left-7 lg:top-50'>
              <h2 className="font-[Tangerine] text-6xl font-bold text-[#d7d6d4] sm:text-8xl lg:text-9xl">Best Coffee</h2>
             <p className="text-xs my-2 sm:my-4 text-[#d7d6d4] sm:text-[20px] sm:leading-6 md:mb-10 md:w-130 lg:w-200">it is best to start your day with a cup of coffee.Discover the best flavours coffee you will ever have.We provide the best for our customers.</p>
-            <Link to='/' className="text-white text-[10px] bg-[#736447] px-3 py-2 md:px-4 md:py-3 lg:py-3 lg:px-5 rounded-3xl  hover:bg-[#a6936c] sm:text-[15px] md:text-[17px] lg:text-[20px]">Explor Menue</Link>
+            <Link to='/coffee-service/' className="text-white text-[10px] bg-[#736447] px-3 py-2 md:px-4 md:py-3 lg:py-3 lg:px-5 rounded-3xl  hover:bg-[#a6936c] sm:text-[15px] md:text-[17px] lg:text-[20px]">Explor Menue</Link>
             </div>
             </div>}
             </section>
@@ -59,7 +59,7 @@ const Home = () => {
                 <img src={data[24].image} className='w-full opacity-90 h-full rounded-2xl' alt=''/>
                 <div className='absolute left-6 top-14 sm:top-40'>
                     <p className='text-orange-100 leading-5 sm:text-[26px] sm:leading-8'>Our Coffee bar uses only Ethiopian coffee,All commercially produced coffee Originate form Ethiopia.</p>
-                    <Link to='/'  className='underline underline-offset-1 text-orange-100 text-xs my-3 sm:my-5 sm:text-[20px]'>about us</Link>
+                    <Link to='/coffee-service/'  className='underline underline-offset-1 text-orange-100 text-xs my-3 sm:my-5 sm:text-[20px]'>about us</Link>
 
                 </div>
                 </div>}
@@ -129,7 +129,7 @@ const Home = () => {
             {load && <h3>Loading...</h3>}
             {error && <p>{error}</p>}
            {data && < Blog  data={data}/>}
-         <Link to='/blog' className=' my-4 underline underline-offset-1 cursor-pointer text-brown-100'>See more</Link>
+         <Link to='/coffee-service/blog' className=' my-4 underline underline-offset-1 cursor-pointer text-brown-100'>See more</Link>
 
            </section>
            </div>

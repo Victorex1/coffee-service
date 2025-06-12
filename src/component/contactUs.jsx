@@ -122,6 +122,7 @@ const Contact = () => {
             </form>
         </section>
     </div>
+    
    
 </div>
 <div className='py-4 flex justify-center w-screen overflow-hidden'>

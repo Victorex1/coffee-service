@@ -66,7 +66,7 @@ const Nav = () => {
         }, 300);
       }
        }
-       history.push('/Log-in')
+       history.push('/coffee-service/Log-in')
 
      
       }else{
@@ -112,7 +112,7 @@ setTimeout(() => {
             <div className=' one hidden absolute h-screen w-0 md:w-1/2 bg-gray-300 top-0 right-0 text-black overflow-hidden
              flex-col md:items-center text-left p-4 md:p-0 md:flex md:justify-center md:bg-transparent md:relative md:h-auto md:flex-row md:text-white '>
             <i className=" cros fa-solid fa-x right-0 absolute mx-3 cursor-pointer sm:text-md sm:m-5 md:mb-4 md:opacity-0 md:cursor-none" title='close' onClick={ e => hid(e)}></i>
-             <Link   className=' pointrt-none flex justify-left items-center border-l-4 md:border-l-0 border-gray-300 hover:border-blue-400 md:hover:border-l-0 p-2 md:p-0 md:pb-1  mt-9 md:mt-0  md:mx-2 lg:mx-6 md:hover:border-b-2 md:hover:border-white md:rounded-none' onClick={ e => hid(e)} to='/' >
+             <Link   className=' pointrt-none flex justify-left items-center border-l-4 md:border-l-0 border-gray-300 hover:border-blue-400 md:hover:border-l-0 p-2 md:p-0 md:pb-1  mt-9 md:mt-0  md:mx-2 lg:mx-6 md:hover:border-b-2 md:hover:border-white md:rounded-none' onClick={ e => hid(e)} to='/coffee-service/' >
               <div className='md:hidden'>
               <i className="fa-solid fa-house mr-4 pointer-events-none hidden"></i>
 
@@ -120,7 +120,7 @@ setTimeout(() => {
               <p className=' text-2 md:text-lg md:text-white pointer-events-none' >Home</p>
 
              </Link>
-             <Link  className='w-100 lg:w-80 flex justify-left items-center  border-l-4 md:border-l-0 border-gray-300 hover:border-blue-400 md:hover:border-l-0 my-2 p-2  md:pb-1 md:p-0 md:mx-2  md:hover:border-b-2 md:hover:border-white md:rounded-none' onClick={ e => hid(e)}  to='/contact-us'>
+             <Link  className='w-100 lg:w-80 flex justify-left items-center  border-l-4 md:border-l-0 border-gray-300 hover:border-blue-400 md:hover:border-l-0 my-2 p-2  md:pb-1 md:p-0 md:mx-2  md:hover:border-b-2 md:hover:border-white md:rounded-none' onClick={ e => hid(e)}  to='/coffee-service/contact-us'>
               <div className='md:hidden'>
               <i className=" fa-solid fa-phone mr-4 pointer-events-none "></i>
 
@@ -128,7 +128,7 @@ setTimeout(() => {
               <p className=' text-2 md:text-lg md:text-white pointer-events-none' >Contact Us</p>
 
              </Link>
-             <Link className=' flex justify-left items-center border-l-4 md:border-l-0  border-gray-300 hover:border-blue-400 md:hover:border-l-0 p-2 md:p-0  md:pb-1  md:mx-2 lg:mx-6 md:hover:border-b-2 md:hover:border-white md:rounded-none' onClick={ e => hid(e)} to='/blog-list'  >
+             <Link className=' flex justify-left items-center border-l-4 md:border-l-0  border-gray-300 hover:border-blue-400 md:hover:border-l-0 p-2 md:p-0  md:pb-1  md:mx-2 lg:mx-6 md:hover:border-b-2 md:hover:border-white md:rounded-none' onClick={ e => hid(e)} to='/coffee-service/blog-list'  >
              <div className='md:hidden'>
               <i className="fa-solid fa-blog mr-4 pointer-events-none md:hidden"></i>
 
@@ -136,7 +136,7 @@ setTimeout(() => {
               <p className=' text-2 md:text-lg md:text-white pointer-events-none'  >Blog</p>
 
              </Link>
-              <Link  className='w-100 md:w-auto flex justify-left items-center border-l-4 md:border-l-0  border-gray-300 hover:border-blue-400 md:hover:border-l-0 p-2 md:p-0  md:pb-1  md:mx-2 lg:mx-6 md:hover:border-b-2 md:hover:border-white md:rounded-none' onClick={ e => hid(e)}  to='/cart'>
+              <Link  className='w-100 md:w-auto flex justify-left items-center border-l-4 md:border-l-0  border-gray-300 hover:border-blue-400 md:hover:border-l-0 p-2 md:p-0  md:pb-1  md:mx-2 lg:mx-6 md:hover:border-b-2 md:hover:border-white md:rounded-none' onClick={ e => hid(e)}  to='/coffee-service/cart'>
              <div className='md:hidden'>
               <i className="fa-solid fa-cart-shopping mr-4 pointer-events-none md:hidden"></i>
               

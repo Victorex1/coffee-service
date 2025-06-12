@@ -10,7 +10,7 @@ const Footer = () => {
                     <h3 className="text-2xl md:text-4xl my-3">Contact us</h3>
                     <p className="text-sm md:text-xl">329 Queensbarrey street, North Melbourne VLC 3051 Australia 123 456 7890
                         cpffebaree.com
-                    </p>
+                      </p>
                 </div>
                 <div className="my-7 max-w-70 ">
                     <h3 className="text-2xl md:text-4xl my-3">Opening Hours</h3>

@@ -4,6 +4,7 @@ const Recipt = () => {
 
 
     return ( 
+        
         <div className="w-screen pb-20 flex justify-center">
             <div className="mt-20  p-3 w-101 relative overflow-hidden">
                 <div className='overflow-hidden rounded-full absolute -top-40 -right-40 w-100 '>

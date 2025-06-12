@@ -8,6 +8,7 @@ const Blog = ({data}) => {
       count.push(data[i]) 
     }
    }
+   
 
     return ( 
         <div className='list text-center md:flex sm:justify-around sm:max-w-200'>

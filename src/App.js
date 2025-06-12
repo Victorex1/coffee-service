@@ -21,28 +21,28 @@ function App() {
       <Nav/>
      <div>
      <Switch> 
-        <Route exact path='/'>
+        <Route exact path='/coffee-service/'>
         <Home/>
       </Route>
-       <Route path='/contact-us'>
+       <Route path='/coffee-service/contact-us'>
         <Contact/>
       </Route>
-      <Route path='/Log-in'>
+      <Route path='/coffee-service/Log-in'>
         <Login/>
       </Route>
-      <Route path='/blog-list'>
+      <Route path='/coffee-service/blog-list'>
         <BlogList/>
       </Route>
-      <Route path='/Blog-details'>
+      <Route path='/coffee-service/Blog-details'>
         <BlogDetails/>
       </Route>
-       <Route path='/cart'>
+       <Route path='/coffee-service/cart'>
         <Cart/>
       </Route>
-       <Route path='/recipt'>
+       <Route path='/coffee-service/recipt'>
         <Recipt/>
       </Route>
-      <Route path='*'>
+      <Route path='/coffee-service*'>
         <PageNotFound/>
       </Route>
      </Switch>

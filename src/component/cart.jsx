@@ -53,7 +53,7 @@ const Cart = () => {
      warn.style.animation = 'scalE 0.2s ease-in forwards'
      cartDetails.classList.remove('opacity-20')
      cartDetails.classList.remove('pointer-events-none')
-           history.push('/recipt')
+           history.push('/coffee-service/recipt')
          }, 2000);
       }
     })
@@ -61,7 +61,7 @@ const Cart = () => {
  
     return ( 
 
-        <div className=' w-screen p-4 mt-14 flex flex-col justify-center items-center'>
+        <div className=' w-screen p-6 mt-14 flex flex-col justify-center items-center'>
             <div className='cart w-full sm:w-100 md:grid grid-cols-3 gap-5 mt-10 md:w-185'>
                 <div className='col-span-2 h-full md:flex flex-col justify-between md:h-150'>
                   <div className=''>

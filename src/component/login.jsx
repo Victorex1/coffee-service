@@ -332,7 +332,7 @@ const LogIn = e => {
        textContent.style.color = 'green';
          setTimeout(() => {
          textContent.style.visibility = 'hidden'
-            history.push('/')
+            history.push('/coffee-service/')
          }, 2000);
    };
     }
