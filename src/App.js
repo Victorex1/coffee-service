@@ -8,6 +8,7 @@ import Login from './component/login';
 import BlogList from './component/blogList';
 import BlogDetails from './component/blogDetails';
 import Cart from './component/cart';
+import './style2.css'
 import './index.css'
 import PageNotFound from './component/404Page';
 import Recipt from './component/recipt';
