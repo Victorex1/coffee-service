@@ -4,7 +4,7 @@ const Recipt = () => {
 
 
     return ( 
-        
+
         <div className="w-screen pb-20 flex justify-center">
             <div className="mt-20  p-3 w-101 relative overflow-hidden">
                 <div className='overflow-hidden rounded-full absolute -top-40 -right-40 w-100 '>
@@ -45,26 +45,26 @@ const Recipt = () => {
                 <div className='flex justify-between items-start my-17' >
                    <div className=''>
                    
-                    <div className='text-[14px] flex gap-2 items-center my-1'>
-                        <div><i class="fa-solid fa-phone text-[#7f4221]"></i></div>
+                    <div className='text-[12px] flex gap-2 items-center my-1'>
+                        <div><i className="fa-solid fa-phone text-[#7f4221]"></i></div>
                         <div>000-0000-000</div>
                     </div>
-                    <div className='text-[14px] flex gap-2 items-center my-1'>
-                            <div><i class="fa-solid fa-globe text-[#7f4221]"></i></div>
+                    <div className='text-[12px] flex gap-2 items-center my-1'>
+                            <div><i className="fa-solid fa-globe text-[#7f4221]"></i></div>
 
                         <div>
                         www.coffeesite.codex.com
                         </div>
                     </div>
-                    <div className='text-[14px] flex gap-2 items-center my-1'>
-                       <div><i class="fa-solid fa-envelope text-[#7f4221]"></i></div>
+                    <div className='text-[12px] flex gap-2 items-center my-1'>
+                       <div><i className="fa-solid fa-envelope text-[#7f4221]"></i></div>
                        <div>
                         stephenvictor701@gmail
 
                        </div>
                     </div>
-                    <div className='text-[14px] flex gap-2 items-center my-1'>
-                        <div><i class="fa-solid fa-location-dot text-[#7f4221]"></i>
+                    <div className='text-[12px] flex gap-2 items-center my-1'>
+                        <div><i className="fa-solid fa-location-dot text-[#7f4221]"></i>
                         </div>
                         <div>
                             345 park Avenue, NY
@@ -91,6 +91,7 @@ const Recipt = () => {
                    </div>
                 </div>
                 <div className="flex justify-center w-full mt-10">
+                    
                 <h3>Thank you for the purchase</h3>
                     
                 </div>

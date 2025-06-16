@@ -1,10 +1,15 @@
 import {useHistory} from 'react-router-dom'
+import { useRef } from 'react';
 
 import back from '../img/latte-art2.jpg'
 
 const Cart = () => {
 
   const history = useHistory();
+  const value = useRef(null);
+  const value1= useRef(null);
+  const value2= useRef(null);
+  const value3= useRef(null);
 
 
     const close = e => {
@@ -14,18 +19,89 @@ const Cart = () => {
      cartDetails.classList.remove('opacity-20')
      cartDetails.classList.remove('pointer-events-none')
 
+       const pin = document.querySelector('.pin')
+       const home = cartDetails.parentElement.parentElement.parentElement;
+       home.classList.remove('h-screen')
+        home.classList.remove('overflow-hidden')
+      pin.children[0].value = ''
+      pin.children[1].value = ''
+      pin.children[2].value = ''
+      pin.children[3].value = ''
     }
 
-    const confirm = e => {
+  const confirm = e => {
         const cartDetails = e.target.parentElement.parentElement.parentElement.parentElement.parentElement;
         const popup = document.querySelector('.index')
 
-     cartDetails.classList.add('opacity-20')
-     cartDetails.classList.add('pointer-events-none')
+        cartDetails.classList.add('opacity-20')
+        cartDetails.parentElement.parentElement.parentElement.classList.add('h-screen')
+        cartDetails.parentElement.parentElement.parentElement.classList.add('overflow-hidden')
+        cartDetails.classList.add('pointer-events-none')
+        popup.style.animation = 'scal 0.2s ease-out forwards';
+        value.current.focus()
 
-      popup.style.animation = 'scal 0.2s ease-out forwards'
+        const pin = document.querySelector('.pin')
+        pin.children[0].addEventListener('input', () => {
+        if(pin.children[0].value !== ''){
+          value.current.blur()
+          value1.current.focus()
+
+          pin.children[1].addEventListener('input', () => {
+            if(pin.children[1].value !== ''){
+             value1.current.blur()
+             value2.current.focus()
+
+             pin.children[2].addEventListener('input', () => {
+             if(pin.children[2].value !== ''){
+                value2.current.blur()
+                value3.current.focus()
+
+                pin.children[3].addEventListener('input', () => {
+                pinEntry()
+                // Delet()
+                })
+              }
+              })
+         
+           } 
+           })
+        
+        }
+    
+       })
     }
+// const Delet  = () => {
+//         const pin = document.querySelector('.pin')
+//         pin.children[2].addEventListener('keydown', () => {
+//           if(key.value == 'delet')
+//             console.log()
+//                value3.current.blur()
+//                 value2.current.focus()
+//                 pin.children[3].value = ''
 
+//            pin.children[1].addEventListener('keydown', () => {
+//                 value2.current.blur()
+//                 value1.current.focus()
+//                 pin.children[2].value = ''
+
+//                 pin.children[0].addEventListener('keydown', () => {
+//                     value1.current.blur()
+//                     value.current.focus()
+//                     pin.children[1].value = '';
+//                       pin.children[1].addEventListener('keydown', () => {
+                 
+//                     pin.children[0].value = '';
+                
+//                 })
+
+
+//                 })
+
+              
+//            })
+//         })
+// }
+   
 
     const check = e => {
        console.log(e.target.innerHTML)
@@ -39,24 +115,25 @@ const Cart = () => {
     }
 
   const pinEntry = e => {
-
-    e.target.addEventListener('input', () => {
+  
      const pin = document.querySelector('.pin')
-
-      if(pin.children[0].value !== '' && pin.children[1].value !== '' && pin.children[2].value !== '' && pin.children[3].value !== ''){
+    if(pin.children[0].value !== '' && pin.children[1].value !== '' && pin.children[2].value !== '' && pin.children[3].value !== ''){
     
         for( let i = 0; i < 4; i++){
            pin.children[i].style.border = '2px solid green'
+          
          }
          setTimeout(() => {  const cartDetails = document.querySelector('.cart')
-     const warn = e.target.parentElement.parentElement.parentElement;
-     warn.style.animation = 'scalE 0.2s ease-in forwards'
+       const home = cartDetails.parentElement.parentElement.parentElement;
+
+     pin.style.animation = 'scalE 0.2s ease-in forwards'
      cartDetails.classList.remove('opacity-20')
      cartDetails.classList.remove('pointer-events-none')
+        home.classList.remove('h-screen')
+        home.classList.remove('overflow-hidden')
            history.push('/coffee-service/recipt')
-         }, 2000);
+         }, 12000);
       }
-    })
   }
  
     return ( 
@@ -212,10 +289,10 @@ const Cart = () => {
                     </div>
                 </div >
                 <div className='pin my-3 flex justify-between items-center w-full gap-2'>
-                    <input onClick={e => pinEntry(e)} type="number" className='w-11 bg-gray-300 rounded-lg p-2 h-11 text-center font-bold outline-white'/>
-                    <input  onClick={e => pinEntry(e)} type="number" className='w-11 bg-gray-300 rounded-lg p-2 h-11 text-center font-bold '/>
-                    <input  onClick={e => pinEntry(e)} type="number" className='w-11 bg-gray-300 rounded-lg p-2 h-11 text-center font-bold '/>
-                    <input  onClick={e => pinEntry(e)} type="number" className='w-11 bg-gray-300 rounded-lg p-2 h-11 text-center font-bold '/>
+                    <input type="password" ref={value} className='w-11 bg-gray-300 rounded-lg p-2 h-11 text-center font-bold outline-white'/>
+                    <input  type="password" ref={value1}   className='w-11 bg-gray-300 rounded-lg p-2 h-11 text-center font-bold '/>
+                    <input  type="password"ref={value2}   className='w-11 bg-gray-300 rounded-lg p-2 h-11 text-center font-bold '/>
+                    <input  type="password" ref={value3}   className='w-11 bg-gray-300 rounded-lg p-2 h-11 text-center font-bold '/>
                 </div>
             
             

@@ -18,7 +18,13 @@ const Home = () => {
     return (
         <div className="mt-13 w-screen">
             <section>
-        {load && <h3>Loading...</h3>}
+        {load && <h3 className=" w-full h-30 flex justify-center items-center">
+            <div className='flex gap-2'>
+                        <div className='circle1 rounded-full  bg-[#736447] h-4 w-4'></div>
+                        <div className='circle2 rounded-full  bg-[#736447] h-4 w-4'></div>
+                        <div className='circle3 rounded-full bg-[#736447] h-4 w-4'></div>
+                    </div>
+                    </h3>}
          {error && <p>{error}</p>}
          {data && 
          <div>
@@ -53,7 +59,13 @@ const Home = () => {
                 </div>
             </section>
             <section>
-                 {load && <h3>Loading...</h3>}
+                 {load && <h3 className=" w-full h-30 flex justify-center items-center">
+            <div className='flex gap-2'>
+                        <div className='circle1 rounded-full  bg-[#736447] h-4 w-4'></div>
+                        <div className='circle2 rounded-full  bg-[#736447] h-4 w-4'></div>
+                        <div className='circle3 rounded-full bg-[#736447] h-4 w-4'></div>
+                    </div>
+                    </h3>}
             {error && <p>{error}</p>}
             {data && <div className='relative h-40 sm:h-70 sm:max-w-250 sm:mx-auto'>
                 <img src={data[24].image} className='w-full opacity-90 h-full rounded-2xl' alt=''/>
@@ -126,7 +138,13 @@ const Home = () => {
            </section>
            <section className='flex flex-col items-center mt-5'>
             <h3 className='text-2xl text-[#736447] sm:text-3xl'>Our Blogs</h3>
-            {load && <h3>Loading...</h3>}
+            {load && <h3 className=" w-full h-30 flex justify-center items-center">
+            <div className='flex gap-2'>
+                        <div className='circle1 rounded-full  bg-[#736447] h-4 w-4'></div>
+                        <div className='circle2 rounded-full  bg-[#736447] h-4 w-4'></div>
+                        <div className='circle3 rounded-full bg-[#736447] h-4 w-4'></div>
+                    </div>
+                    </h3>}
             {error && <p>{error}</p>}
            {data && < Blog  data={data}/>}
          <Link to='/coffee-service/blog' className=' my-4 underline underline-offset-1 cursor-pointer text-brown-100'>See more</Link>

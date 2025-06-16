@@ -11,7 +11,13 @@ const Contact = () => {
         <div className='mt-13 w-screen bg-gray-200'>
            
         <section>
-        {load && <h3>Loading...</h3>}
+        {load && <h3 className=" w-full h-30 flex justify-center items-center">
+            <div className='flex gap-2'>
+                        <div className='circle1 rounded-full  bg-[#736447] h-4 w-4'></div>
+                        <div className='circle2 rounded-full  bg-[#736447] h-4 w-4'></div>
+                        <div className='circle3 rounded-full bg-[#736447] h-4 w-4'></div>
+                    </div>
+                    </h3>}
          {error && <p>{error}</p>}
          {data && 
            <div className=''>
@@ -84,16 +90,16 @@ const Contact = () => {
                 <div className='grid sm:grid-cols-2 gap-4'>
                     <div className='w-auto'>
                  <label for='name1' className='mt-4 sm:text-lg'> Full Name:</label>
-                <input type='text' className='w-full text-xs sm:text-lg bg-transparent border rounded-xl p-2 text-gray-600 outline-none my-3 focus:border-2' name='name' id='name1'/>
+                <input type='text' className='w-full text-xs sm:text-lg bg-transparent border rounded-md p-2 text-gray-600 outline-none my-3 focus:border-2' name='name' id='name1'/>
                 </div>
                 <div className=''>
                 <label for='email2' className='mt-4 sm:text-lg'> Email:</label>
-                <input type='email' name='email' className='text-xs sm:text-lg w-full bg-transparent border rounded-xl p-2 text-gray-600 outline-none my-2 focus:border-2' id='email2' />
+                <input type='email' name='email' className='text-xs sm:text-lg w-full bg-transparent border rounded-md p-2 text-gray-600 outline-none my-2 focus:border-2' id='email2' />
                 </div>
                
                 <div>
                  <label for='phone' className='mt-4 sm:text-lg'> Phone:</label>
-                <input type='number' name='phone' className='text-xs sm:text-lg w-full bg-transparent border rounded-xl p-2 text-gray-600 outline-none my-2 focus:border-2' id='phone' />
+                <input type='number' name='phone' className='text-xs sm:text-lg w-full bg-transparent border rounded-md p-2 text-gray-600 outline-none my-2 focus:border-2' id='phone' />
                 </div>
                 <input type="hidden" name="_cc" value="another@email.com"/>
 
@@ -101,7 +107,7 @@ const Contact = () => {
                
                 <div>
                  <label for='selet' className='mt-4 sm:text-lg'>Your choise:</label>
-                <select name='Selected' id='selet' className=' text-xs w-full sm:text-lg bg-transparent border rounded-xl p-2 text-gray-600 outline-none my-2 focus:border-2'>
+                <select name='Selected' id='selet' className=' text-xs w-full sm:text-lg bg-transparent border rounded-md p-2 text-gray-600 outline-none my-2 focus:border-2'>
                     <option value='Choose your choise'>Select your choise</option>
                     <option value='Cappuccion'>Cappuccion</option>
                     <option value='Moccaccino'>Moccaccino</option>
@@ -115,7 +121,7 @@ const Contact = () => {
                 </div>
                
                 <label for='describe' className='mt-4 sm:text-lg'> Discription:</label>
-                <textarea placeholder='Description' name='discription' className='text-xs w-full sm:text-lg bg-transparent border-1 rounded-xl p-2 text-gray-600 outline-none my-2 min-h-40 focus:border-2' id='descirbe'/>
+                <textarea placeholder='Description' name='discription' className='text-xs w-full sm:text-lg bg-transparent border-1 rounded-md p-2 text-gray-600 outline-none my-2 min-h-40 focus:border-2' id='descirbe'/>
                 <input type="hidden" name="_captcha" value="false"></input>
                 
                 <button title='submit form' className=' w-full md:w-100 mx-auto my-4 hover:bg-[#787060] cursor-pointer bg-[#736447] text-white py-3 rounded-md sm:py-4 sm:text-xl'>Submit</button>
@@ -130,11 +136,11 @@ const Contact = () => {
 
             <iframe title='map' src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15864.540680313658!2d7.1095942235239!3d6.245912083033176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sNnamdi%20Azikiwe%20University!5e0!3m2!1sen!2sng!4v1748526919838!5m2!1sen!2sng" 
           style={{
-           width:"100%" ,
-           maxWidth:'500',
+           width:"100%",
+           maxWidth:"500",
             height:"320px",
-            border:"0" ,
-            allowfullscreen:"" ,
+            border:"0",
+            allowfullscreen:"",
             loading:"lazy",
            referrerpolicy:"no-referrer-when-downgrade"}
           }  ></iframe>
