@@ -132,7 +132,7 @@ const Cart = () => {
         home.classList.remove('h-screen')
         home.classList.remove('overflow-hidden')
            history.push('/coffee-service/recipt')
-         }, 12000);
+         }, 2000);
       }
   }
  
