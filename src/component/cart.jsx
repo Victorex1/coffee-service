@@ -58,7 +58,6 @@ const Cart = () => {
 
                 pin.children[3].addEventListener('input', () => {
                 pinEntry()
-                // Delet()
                 })
               }
               })
@@ -70,38 +69,6 @@ const Cart = () => {
     
        })
     }
-// const Delet  = () => {
-//         const pin = document.querySelector('.pin')
-//         pin.children[2].addEventListener('keydown', () => {
-//           if(key.value == 'delet')
-//             console.log()
-//                value3.current.blur()
-//                 value2.current.focus()
-//                 pin.children[3].value = ''
-
-//            pin.children[1].addEventListener('keydown', () => {
-//                 value2.current.blur()
-//                 value1.current.focus()
-//                 pin.children[2].value = ''
-
-//                 pin.children[0].addEventListener('keydown', () => {
-//                     value1.current.blur()
-//                     value.current.focus()
-//                     pin.children[1].value = '';
-//                       pin.children[1].addEventListener('keydown', () => {
-                 
-//                     pin.children[0].value = '';
-                
-//                 })
-
-
-//                 })
-
-              
-//            })
-//         })
-// }
-   
 
     const check = e => {
        console.log(e.target.innerHTML)
