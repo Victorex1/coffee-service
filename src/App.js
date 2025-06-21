@@ -8,6 +8,7 @@ import Login from './component/login';
 import BlogList from './component/blogList';
 import BlogDetails from './component/blogDetails';
 import Cart from './component/cart';
+import History from './component/history';
 import './style2.css'
 import './index.css'
 import PageNotFound from './component/404Page';
@@ -39,8 +40,11 @@ function App() {
        <Route path='/coffee-service/cart'>
         <Cart/>
       </Route>
-       <Route path='/coffee-service/recipt'>
+       <Route path='/coffee-service/recipt/:id'>
         <Recipt/>
+      </Route>
+      <Route path='/coffee-service/history'>
+      <History/>
       </Route>
       <Route path='/coffee-service*'>
         <PageNotFound/>

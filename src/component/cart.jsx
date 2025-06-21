@@ -1,9 +1,12 @@
 import {useHistory} from 'react-router-dom'
 import { useRef } from 'react';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { useState,useEffect } from 'react';
 
 import back from '../img/latte-art2.jpg'
 
 const Cart = () => {
+
 
   const history = useHistory();
   const value = useRef(null);
@@ -11,6 +14,9 @@ const Cart = () => {
   const value2= useRef(null);
   const value3= useRef(null);
 
+  const [details,setdetails]= useState()
+
+ 
 
     const close = e => {
         const cartDetails = document.querySelector('.cart')
@@ -28,8 +34,22 @@ const Cart = () => {
       pin.children[2].value = ''
       pin.children[3].value = ''
     }
-
+   
   const confirm = e => {
+       const qty = document.querySelector('.Qty')
+       const warning = document.querySelector('.warning')
+       const itembox = document.querySelector('.itembox')
+
+    if(qty.value === ''){
+        warning.innerHTML = 'Input the quantity of products purchase'
+        warning.classList.add('visible')
+        warning.classList.remove('invisible')
+    }else if(itembox.children.length < 1){
+        warning.innerHTML = 'No product has been selected'
+       warning.classList.add('visible')
+        warning.classList.remove('invisible')
+    }else{
+
         const cartDetails = e.target.parentElement.parentElement.parentElement.parentElement.parentElement;
         const popup = document.querySelector('.index')
 
@@ -58,20 +78,143 @@ const Cart = () => {
 
                 pin.children[3].addEventListener('input', () => {
                 pinEntry()
-                })
-              }
+                  const day = new Date().getDate()
+                const month = new Date().getMonth() +1;
+                const year = new Date().getFullYear();
+                const hour= new Date().getHours();
+                const minutes= new Date().getMinutes();
+
+
+                const date =`${month}/${day}/${year}`;
+
+                if(localStorage.getItem('details') !== null){
+
+                  if(hour > 12){
+                const time = `${hour}:${minutes} PM`;
+                details1(date,time,itembox)
+
+                  }else{
+                       const time = `${hour}:${minutes} AM`;
+                       details1(date,time,itembox)
+                  }
+
+                
+                }else{
+                  if(hour > 12){
+                const time = `${hour}:${minutes} PM`;
+                details2(date,time,itembox)
+
+                  }else{
+                       const time = `${hour}:${minutes} AM`;
+                       details2(date,time,itembox)
+                  }
+                }
+             
+                 })
+
+               }
               })
-         
-           } 
+            } 
            })
-        
+
         }
     
        })
+
     }
 
-    const check = e => {
-       console.log(e.target.innerHTML)
+    setTimeout(() => {
+      warning.innerHTML = ''
+        warning.classList.remove('visible')
+        warning.classList.add('invisible')
+
+    }, 3000);
+
+
+  }
+ const details1 = (date,time,itembox) => {
+                const one1 = []
+                    const one = [];
+                    let arry = {}
+
+                    const date2 = {  
+                   time:time,
+                   date : date,
+
+                    }
+                    one1.push(date2)
+
+                   for(let a = 0; a< itembox.children.length ;a++){
+                 let random = Math.floor( Math.random() * 100);
+
+
+                   if(one.length > 0){
+                      for(let i= 0; i< one.length ;i++){
+                        if(one[i].id === random){
+                      random = Math.floor( Math.random() * 100);
+
+                        }
+                      }
+                   }
+                   arry = {
+                   id:random,
+                   itemName : itembox.children[a].children[0].children[1].innerHTML,
+                   Qty : itembox.children[a].children[2].innerHTML,
+                   price :itembox.children[a].children[3].children[0].innerHTML,
+                    }
+                   
+                    one.push(arry)
+
+                   }
+                   one1.push(one)
+                    
+
+                  setdetails(one1)
+          }
+    const details2 = (date,time,itembox) => {
+             
+               
+                const one = []
+                const one1 = []
+
+                const date2 = {  
+                   time:time,
+                   date : date,
+
+                    }
+                    one1.push(date2)
+
+                   for(let a = 0; a< itembox.children.length ;a++){
+                 let random = Math.floor( Math.random() * 100);
+
+                 if(one.length > 0){
+                      for(let i= 0; i< one.length ;i++){
+                        if(one[i].id === random){
+                      random = Math.floor( Math.random() * 100);
+
+                        }
+                      }
+                   }
+
+                   const arry = {
+                   id:random,
+                   itemName : itembox.children[a].children[0].children[1].innerHTML,
+                   Qty : itembox.children[a].children[2].innerHTML,
+                   price :itembox.children[a].children[3].children[0].innerHTML,
+                    }
+                  
+                    one.push(arry)
+
+                   }
+                   one1.push(one)
+                    
+                  setdetails(one1)
+
+
+          }
+
+
+      const check = e => {
        e.target.innerHTML = 'Checking...'
        setTimeout(() => {
        e.target.innerHTML = 'Details Confirmed'
@@ -79,9 +222,9 @@ const Cart = () => {
        }, 3000);
 
 
-    }
+        }
 
-  const pinEntry = e => {
+        const pinEntry = e => {
   
      const pin = document.querySelector('.pin')
     if(pin.children[0].value !== '' && pin.children[1].value !== '' && pin.children[2].value !== '' && pin.children[3].value !== ''){
@@ -98,18 +241,38 @@ const Cart = () => {
      cartDetails.classList.remove('pointer-events-none')
         home.classList.remove('h-screen')
         home.classList.remove('overflow-hidden')
-           history.push('/coffee-service/recipt')
+           history.push('/coffee-service/history')
          }, 2000);
       }
-  }
- 
+        }
+
+        const store = (details) => {
+     let stor1 = null 
+     if(localStorage.getItem('details') == null){
+      stor1 = []
+     }else{
+      stor1 = JSON.parse(localStorage.getItem('details'))
+     }
+     stor1.push(details)
+     localStorage.setItem('details', JSON.stringify(stor1))
+       }
+  useEffect(()=> {
+    if(details !== undefined){
+  store(details)
+}
+    
+  },[details])
+
     return ( 
 
         <div className=' w-screen p-6 mt-14 flex flex-col justify-center items-center'>
-            <div className='cart w-full sm:w-100 md:grid grid-cols-3 gap-5 mt-10 md:w-185'>
+            <div className='cart w-full sm:w-100  grid-cols-3 gap-5 mt-10 md:w-100'>
                 <div className='col-span-2 h-full md:flex flex-col justify-between md:h-150'>
                   <div className=''>
+                    <div className='flex justify-between items-center'>
                     <h3 className='text-2xl font-bold'>Shopping Cart</h3>
+                    <Link to='/coffee-service/history' className='font-bold leading-4 cursor-pointer' title='history'>History</Link>
+                    </div>
                     <div className='overflow-x-auto my-2 mt-10 '>
                       <div className='flex justify-between mb-3 '>
                         <p>Products</p>
@@ -119,27 +282,60 @@ const Cart = () => {
                       </div>
                       <hr className='text-gray-400' />
                     </div>
-                     <div className=' flex justify-between items-center my-2'>
+                    <div className='itembox'>
+                        <div className=' flex justify-between items-center my-2'>
                         <div className='flex items-start w-[70px]'>
-                            <img src={back} className='w-10 h-10 mr-2 rounded-lg' alt="" />
-                            <p className='text-sm my-2'>Art2</p>
+                            <img src={back} className='w-9 h-9 mr-2 rounded-lg' alt="" />
+                            <p className='itemname text-sm my-2'>bell</p>
                         </div>
-                        <p className='text-sm w-[50px]'>$200</p>
-                        <input type="number"  className='w-[40px] outline-none border rounded-md p-1 text-sm text-center' />
+                        <p className='text-sm  w-[50px]'>$200</p>
+                        <p  className=' Qty w-[40px] outline-none rounded-md p-1 text-sm text-center'>2</p>
                         <div className='flex items-center justify-between w-[70px]'>
-                       <p className=' text-sm'>$200</p>
+                       <p className='totalprice text-sm'>$200</p>
+                       <div>
+                       <i className="fa-solid fa-xmark text-xl text-gray-500"></i>
+
+                       </div>
+                        </div>
+                        
+                     </div>
+                      <div className=' flex justify-between items-center my-2'>
+                        <div className='flex items-start w-[70px]'>
+                            <img src={back} className='w-9 h-9 mr-2 rounded-lg' alt="" />
+                            <p className='itemname text-sm my-2'>Art2</p>
+                        </div>
+                        <p className='text-sm  w-[50px]'>$50</p>
+                        <p  className=' Qty w-[40px] outline-none rounded-md p-1 text-sm text-center' >4</p>
+                        <div className='flex items-center justify-between w-[70px]'>
+                       <p className='totalprice text-sm'>$100</p>
                        <i className="fa-solid fa-xmark text-xl text-gray-500"></i>
                         </div>
                         
                      </div>
+                      <div className=' flex justify-between items-center my-2'>
+                        <div className='flex items-start w-[70px]'>
+                            <img src={back} className='w-9 h-9 mr-2 rounded-lg' alt="" />
+                            <p className='itemname text-sm my-2'>rite</p>
+                        </div>
+                        <p className='text-sm  w-[50px]'>$90</p>
+                        <p className=' Qty w-[40px] outline-none rounded-md p-1 text-sm text-center'>3</p>
+                        <div className='flex items-center justify-between w-[70px]'>
+                       <p className='totalprice text-sm'>$400</p>
+                       <i className="fa-solid fa-xmark text-xl text-gray-500"></i>
+                        </div>
+                        
+                     </div>
+                    </div>
+                    
                   </div>
 
                   <div className='flex justify-between items-end mt-12 '>
                     <div className='flex items-center'>
                         <i className="fa-solid fa-less-than mr-2 text-gray-400"></i>
-                        <div className='font-bold cursor-pointer p-1' onClick={e => confirm(e)}>
-                    <p>Continue Shopping</p>
+                        <div className='shop font-bold cursor-pointer p-1' onClick={e => confirm(e)}>
+                    <p id='continue'>Continue Shopping</p>
                         </div>
+
 
                     </div>
                     <div className=''>
@@ -158,7 +354,9 @@ const Cart = () => {
                     </div>
                   </div>
                 </div>
-                <div className='p-7 bg-gray-300 my-9 rounded-lg '>
+                    <p className='warning my-2 text-red-600 text-lg invisible font-bold'>input invalid</p>
+
+                <div className=' col-span-2 p-7 bg-gray-300 my-9 rounded-lg '>
                   <h3 className='text-2xl font-bold'>Payment info</h3>
                   <div className='my-10'>
                     <p className='text-gray-500'>payment method</p>
@@ -266,6 +464,6 @@ const Cart = () => {
   </div>
         </div>
      );
-}
  
+    } 
 export default Cart;

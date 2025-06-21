@@ -85,7 +85,7 @@ const Home = () => {
                     <div>
                         <h3 className="text-nav md:text-[17px]"> Cappuccion</h3>
                         <p className="text-xs md:text-[17px] text-[#a38d68] my-2">Coffee 50%, milk 50%, 280ml</p>
-                        <div className="px-2 py-1 rounded-2xl text-white bg-[#736447] w-20 text-center my-2 text-xs">$3.20</div>
+                        <div className="px-2 py-1 rounded-2xl text-white bg-[#736447] w-20 text-center my-2 text-xs cursor-pointer">$3.20</div>
                     </div>
                 </div>
                 <div className="flex gap-4 bg-[#d7d6d4] rounded-2xl p-3 w-75 ">
@@ -94,7 +94,7 @@ const Home = () => {
                     <div>
                         <h3 className="text-nav md:text-[17px]"> Flat white</h3>
                         <p className="text-xs md:text-[17px] text-[#a38d68] my-2">100% natural Arabical</p>
-                        <div className="px-2 py-1 rounded-2xl text-white bg-[#736447] w-20 text-center my-2 text-xs">$4.00</div>
+                        <div className="px-2 py-1 rounded-2xl text-white bg-[#736447] w-20 text-center my-2 text-xs cursor-pointer">$4.00</div>
                     </div>
                 </div>
                 <div className="flex gap-4 bg-[#d7d6d4] rounded-2xl p-3 w-75 ">
@@ -103,7 +103,7 @@ const Home = () => {
                     <div>
                         <h3 className="text-nav md:text-[17px]"> Moccaccino</h3>
                         <p className="text-xs md:text-[17px] text-[#a38d68] my-2">Coffee 20%, milk 60%</p>
-                        <div className="px-2 py-1 rounded-2xl text-white bg-[#736447] w-20 text-center my-2 text-xs">$5.00</div>
+                        <div className="px-2 py-1 rounded-2xl text-white bg-[#736447] w-20 text-center my-2 text-xs cursor-pointer">$5.00</div>
                     </div>
                 </div>
                 <div className="flex gap-4 bg-[#d7d6d4] rounded-2xl p-3 w-75 ">
@@ -112,7 +112,7 @@ const Home = () => {
                     <div>
                         <h3 className="text-nav md:text-[17px]">Latte</h3>
                         <p className="text-xs md:text-[17px] text-[#a38d68] my-2">Coffee 30%, milk 50%</p>
-                        <div className="px-2 py-1 rounded-2xl text-white bg-[#736447] w-20 text-center my-2 text-xs">$4.30</div>
+                        <div className="px-2 py-1 rounded-2xl text-white bg-[#736447] w-20 text-center my-2 text-xs cursor-pointer">$4.30</div>
                     </div>
                 </div>
                
@@ -121,7 +121,7 @@ const Home = () => {
                     <div>
                         <h3 className="text-nav md:text-[17px]"> Double Expricco</h3>
                         <p className="text-xs md:text-[17px] text-[#a38d68] my-2">Coffee 50%, milk 50%, 280ml</p>
-                        <div className="px-3 py-1 rounded-2xl text-white bg-[#736447] w-20 text-center my-2 text-xs">$4.50</div>
+                        <div className="px-3 py-1 rounded-2xl text-white bg-[#736447] w-20 text-center my-2 text-xs cursor-pointer">$4.50</div>
                     </div>
                 </div>
                 <div className="flex gap-4 bg-[#d7d6d4] rounded-2xl p-3 w-75 ">
@@ -129,8 +129,8 @@ const Home = () => {
 
                     <div>
                         <h3 className="text-nav md:text-[17px]"> Americano</h3>
-                        <p className="text-xs md:text-[17px] text-[#a38d68] my-2">100% natural arabica</p>
-                        <div className="px-2 py-1 rounded-2xl text-white bg-[#736447] w-20 text-center my-2 text-xs">$3.20</div>
+                        <p className="text-xs md:text-[17px] text-[#a38d68] my-2">100% natural arabica</p> 
+                        <div className="px-2 py-1 rounded-2xl text-white bg-[#736447] w-20 text-center my-2 text-xs cursor-pointer">$3.20</div>
                     </div>
                 </div>
              </div>

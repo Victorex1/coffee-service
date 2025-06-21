@@ -405,7 +405,7 @@ const LogIn = e => {
                      <div className='con-password flex flex-col my-5'>
                         <label htmlFor="confirm-password">confirm password</label>
                         <div className='flex justify-between items-center border-b'>
-                          <input type="password" id='confirm-password' name='confirm-password' className='con-in outline-0 peer/confirm-password p-4' />
+                          <input type="password" id='confirm-password' name='confirm-password' className='con-in outline-0 peer/confirm-password p-2' />
                          <div className=' p-1   cursor-pointer' onClick={eyee2}>
                          <i className="fa-solid fa-eye cursor-none" id='eye1'></i>
                         </div>

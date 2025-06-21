@@ -10,6 +10,9 @@
 .index{
   transform: scale(0);
 }
+.index2{
+  transform: scale(0);
+}
 .con-password,.seartch{
   height: 0;
   overflow: hidden;

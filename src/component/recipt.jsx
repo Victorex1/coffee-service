@@ -1,6 +1,19 @@
 import coffee from '../img/latte-art3.jpg'
+import { useState,useEffect } from 'react';
+import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 
 const Recipt = () => {
+    let a =1;
+    const [details ,setdetails] = useState();
+    const {id} = useParams()
+    let arry;
+
+    useEffect(() => {
+     arry = JSON.parse(localStorage.getItem('details'))
+     setdetails(arry[id][1])
+
+    },[])
+    
 
 
     return ( 
@@ -35,12 +48,18 @@ const Recipt = () => {
                         <h3 className="w-10 text-[10px] font-bold">QTY</h3>
                         <h3 className="w-10 text-[10px] font-bold">PRICE</h3>
                     </div>
-                    <div className="flex justify-between items-center w-full border-b-1 py-2 px-2">
-                        <p className="w-8 text-[10px]">1</p>
-                        <p className="w-20 text-[12px]">cheese cake</p>
-                        <p className="w-8 text-[10px]">2pcs</p>
-                        <p className="w-8 text-[10px]"> $10</p>
+                  {details &&  <div className='item-box'>
+                    {details.map( each => (
+                       <div key={each.id} className="flex justify-between items-center w-full border-b-1 py-2 px-2">
+                        <p className="w-8 text-[10px]">{a++}</p>
+                        <p className="w-20 text-[12px]">{each.itemName}</p>
+                        <p className="w-8 text-[10px]">{each.Qty}pcs</p>
+                        <p className="w-8 text-[10px]">{each.price}</p>
                     </div>
+                    ))}
+                      
+                    </div>} 
+                    
                 </div>
                 <div className='flex justify-between items-start my-17' >
                    <div className=''>
