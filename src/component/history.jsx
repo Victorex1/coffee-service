@@ -1,11 +1,16 @@
 import {Link} from 'react-router-dom'
-import { useState,useEffect } from 'react'
+import { useState,useEffect,useRef } from 'react'
 const History = () => {
+
+  const interval = useRef(null)
+  const interval2 = useRef(null)
 
     const [note,setnote] = useState('');
     const [history,sethistory] = useState(null);
     const [loading,setloading] = useState(true);
     const [note1,setnote1] = useState('');
+
+
   const cleara = e => {
     const pop = document.querySelector('.index2')
     const homeHistory = document.querySelector('.history')
@@ -13,9 +18,7 @@ const History = () => {
     homeHistory.classList.add('h-screen')
     homeHistory.classList.add('overflow-hidden')
     homeHistory.classList.add('pointer-events-none')
-
-    const data = e.target.parentElement.parentElement;
-
+    const data = e.target.parentElement;
     const data2 = data.children[0].children[0].innerHTML;
     const data3 = data.children[0].children[2].children[0].innerHTML;
      setnote( `You are about to DELET "${data2}" 
@@ -34,7 +37,7 @@ counter2(data,pop,data2,data3)
 
      setnote('Are you sure you want to clear All history')
     pop.style.animation = 'scal 0.2s ease-out forwards';
-counter(pop)
+Counter(pop)
 
   }
 
@@ -43,44 +46,60 @@ counter(pop)
      let count = 10
       let time2 = 0
 
-    setInterval(() => {
+      if(!interval2.current){
+  interval2.current = setInterval(() => {
 
     if(!(count < 0 )){
-      time2 = count
+      time2 = count--
 
     }else if(count === -1){
       removee2(data2,data3)
       timer.remove()
+      clearInterval(interval2.current)
+      interval2.current = null
+      
     }
-     count--
-
 element.children[4].innerHTML = `Delet in (${time2}s)`
 
     }, 1000);
 
+      }
+   
   }
 
-  const counter = e => {
+  const stop2 = () => {
+    clearInterval(interval2.current)
+    interval2.current = null
+  }
+  
+  
+  const Counter = (e) => {
      let count = 10
-      let time2 = 0
+     let time2 =0
 
-    setInterval(() => {
+    if(!interval.current){
+  interval.current = setInterval(() => {
+      
 
     if(!(count < 0 )){
-      time2 = count
-
+       time2 = count--
     }else if(count === -1){
       removee()
-      const item = document.querySelector('.itembox')
-      item.remove()
+         clearInterval(interval.current)
+        interval.current = null
+      
     }
-     count--
+      
+     console.log(time2)
 
-e.children[4].innerHTML = `Delet in (${time2}s)`
-
+    e.children[4].innerHTML = `Delet in (${time2}s)`
     }, 1000);
-
-  }
+    }
+       }
+   const stope = () => {
+        clearInterval(interval.current)
+        interval.current = null
+      }
 
   const removee = e => {
     const pop = document.querySelector('.index2')
@@ -93,6 +112,8 @@ e.children[4].innerHTML = `Delet in (${time2}s)`
 
     pop.style.animation = 'scalE 0.2s ease-out forwards';
     localStorage.removeItem('details')
+    const item = document.querySelector('.itembox')
+      item.remove()
 
   }
   const removee2 = (data2,data3) => {
@@ -109,13 +130,29 @@ e.children[4].innerHTML = `Delet in (${time2}s)`
 
     const data = store.filter(stor => stor[0].data !== data2 && stor[0].time !== data3)
     localStorage.setItem('details', JSON.stringify(data))
-    console.log(data)
+  }
+
+  const reverse = (e) => {
+ const pop = document.querySelector('.index2')
+
+    const homeHistory = document.querySelector('.history')
+    homeHistory.classList.remove('opacity-20')
+    homeHistory.classList.remove('h-screen')
+    homeHistory.classList.remove('pointer-events-none')
+    homeHistory.classList.remove('overflow-hidden')
+
+    pop.style.animation = 'scalE 0.2s ease-out forwards';
+  if(e.target.parentElement.children[2].children[0].innerHTML === 'Are you sure you want to clear All history'){
+stope()
+
+  }else{
+    stop2()
+  }
   }
 
 
 useEffect(() => {
   const arry = JSON.parse(localStorage.getItem('details'))
-  console.log(arry)
   if(arry === null){
      setnote1('Nothing here')
 setloading(false)
@@ -155,7 +192,7 @@ setloading(false)
                   <Link to={`/coffee-service/recipt/${history.indexOf(each)}`} className='text-blue-400'>View More
                   </Link>
                 </div>
-                    <div className='cursor-pointer p-1 active:bg-gray-400' title='cansele' onClick={e => cleara(e)}>
+                    <div className='cursor-pointer p-2  active:bg-gray-400' title='cansele' onClick={e => cleara(e)}>
                        <i className="fa-solid fa-xmark text-2xl text-gray-500 cursor-pointer" ></i>
 
                   </div>
@@ -176,7 +213,7 @@ setloading(false)
                 <div className='w-full text-center my-4'>
                    <p className='date2'>{note}</p>
                 </div >
-                <button onClick={e => removee2(e)} className='rounded-2xl text-white bg-red-600 w-full py-1 cursor-pointer'>Cansel</button>
+                <button onClick={e => reverse(e)} className='rounded-2xl text-white bg-red-600 w-full py-1 cursor-pointer'>Cansel</button>
                 <button onClick={e => removee(e)} className='border-2 border-red-600 w-full rounded-2xl my-2 text-red-500 cursor-pointer'>Delete in <span>(0s)</span></button>
              </div>
         </div>

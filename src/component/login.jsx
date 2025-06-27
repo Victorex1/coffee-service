@@ -59,11 +59,12 @@ const submit = e => {
     e.preventDefault()
 
     if(localStorage.getItem('userName') !== null){
-      
-      
        localStorage.clear()
     }
  
+    const addressInput  = document.querySelector('.address-in')
+    const addressP  = document.querySelector('.address-p')
+
      const fullNameinput= document.querySelector('.name-in')
      const fullNameP = document.querySelector('.name-p')
 
@@ -83,51 +84,67 @@ const submit = e => {
       setTimeout(() => {
       userP.style.visibility = "hidden";
          
-      }, 2000);
+      }, 4000);
      passwordP.style.visibility = 'hidden';
+      addressP.style.visibility= 'hidden';
       fullNameP.style.visibility= 'hidden';
     confirmPassP.style.visibility = 'hidden'
 
    }else if(fullNameinput.value.length < 8){
       userP.style.visibility = 'hidden';
     confirmPassP.style.visibility = 'hidden'
+      addressP.style.visibility= 'hidden';
      passwordP.style.visibility = 'hidden';
       fullNameP.style.visibility= 'visible';
       setTimeout(() => {
       fullNameP.style.visibility= 'hidden';
          
-      }, 2000);
+      }, 4000);
+   }else if(addressInput.value.length < 8){
+userP.style.visibility = 'hidden';
+    confirmPassP.style.visibility = 'hidden'
+     passwordP.style.visibility = 'hidden';
+      fullNameP.style.visibility= 'hidden';
+      addressP.style.visibility= 'visible';
+      setTimeout(() => {
+      addressP.style.visibility= 'hidden';
+         
+      }, 4000);
    }else if(passwordIN.value.length < 6){
       fullNameP.style.visibility= 'hidden';
       userP.style.visibility = 'hidden';
-    confirmPassP.style.visibility = 'hidden'
+      addressP.style.visibility= 'hidden';
+    confirmPassP.style.visibility = 'hidden';
      passwordP.style.visibility = 'visible';
       setTimeout(() => {
          passwordP.style.visibility = 'hidden'
-      }, 2000);
+      }, 4000);
       
    }else if(passwordIN.value !== confirmPassIN.value){
 
       userP.style.visibility = 'hidden';
-    confirmPassP.style.visibility = 'visible'
+      addressP.style.visibility= 'hidden';
+    confirmPassP.style.visibility = 'visible';
       fullNameP.style.visibility= 'hidden';
      passwordP.style.visibility = 'hidden';
      setTimeout(() => {
          confirmPassP.style.visibility = 'hidden'
-      }, 2000);
+      }, 4000);
    }else{
       console.log(passwordIN.vaue,confirmPassIN.value)
     userP.style.visibility = 'hidden';
     confirmPassP.style.visibility = 'hidden'
       fullNameP.style.visibility= 'hidden';
+      addressP.style.visibility= 'hidden';
      passwordP.style.visibility = 'hidden';
 
-      storage(fullNameinput.value,userInput.value,emailIn.value,passwordIN.value)
+      storage(fullNameinput.value,userInput.value,emailIn.value,passwordIN.value,addressInput.value)
    userInput.value = '';
    passwordIN.value = '';
    fullNameinput.value = '';
    confirmPassIN.value = '';
    emailIn.value = '' ;
+   addressInput.value = '';
   SignIN()
 
    }
@@ -139,6 +156,7 @@ const submit = e => {
  const register = () => {
     const confirmPassDiv= document.querySelector('.con-password');
     const emailDiv= document.querySelector('.email');
+    const addressDiv= document.querySelector('.address');
     const createLink= document.querySelector('.create');
     const logLink= document.querySelector('.loge');
     const userDiv= document.querySelector('.use-name');
@@ -156,6 +174,7 @@ const submit = e => {
          titlee.innerHTML = 'SIGN UP';
          confirmPassDiv.style.animation = 'scroll 0.3s ease-out forwards';
          emailDiv.style.animation = 'scroll 0.3s ease-out forwards';
+         addressDiv.style.animation = 'scroll 0.3s ease-out forwards';
          fullNameDiv.style.animation = 'scroll 0.3s ease-out forwards';
          loginBut.classList.add('hidden');
          userInput.value = ''
@@ -186,6 +205,7 @@ const SignIN = () => {
  const confirmPassDiv= document.querySelector('.con-password');
     const emailDiv= document.querySelector('.email');
     const createLink= document.querySelector('.create');
+    const addressDiv= document.querySelector('.address');
     const logLink= document.querySelector('.loge');
     const fullNameDiv = document.querySelector('.full-name');
     const titlee= document.querySelector('.title');
@@ -197,6 +217,7 @@ const SignIN = () => {
          titlee.innerHTML = 'LOG IN';
          confirmPassDiv.style.animation = 'scrollB 0.3s ease-in forwards';
          emailDiv.style.animation = 'scrollB 0.3s ease-in forwards';
+         addressDiv.style.animation = 'scrollB 0.3s ease-in forwards';
          submitBut.classList.add('hidden');
          fullNameDiv.style.animation = ' scrollB 0.3s ease-in forwards';
          if(loginBut.classList.contains('hidden')){
@@ -218,7 +239,7 @@ const SignIN = () => {
 
 
 //    storing into local storage
-const storage = (todo,todo1,todo2,todo3) => {
+const storage = (todo,todo1,todo2,todo3,todo4) => {
 
     let set;
   if(localStorage.getItem('fullName') == null){
@@ -260,6 +281,15 @@ const storage = (todo,todo1,todo2,todo3) => {
   }
   set3.push(todo3)
   localStorage.setItem('password', JSON.stringify(set3))
+
+   let set4;
+  if(localStorage.getItem('address') == null){
+     set4 = []
+  }else{
+     set3 = JSON.parse(localStorage.getItem('address'))
+  }
+  set4.push(todo4)
+  localStorage.setItem('address', JSON.stringify(set4))
 };
 
   // for for login in
@@ -378,7 +408,7 @@ const LogIn = e => {
 
                       </div>
                       <div className=' full-name flex  flex-col my-5'>
-                        <label htmlFor="Full-nsme" >Full Name</label>
+                        <label htmlFor="Full-name" >Full Name</label>
                         <input type="text" id='full-name' name='Full-name'className='name-in outline-0 peer/full-name border-b p-2' />
                         <p className=" name-p invisible text-pink-600">Input value should't be less than 8 Character.</p>
 
@@ -390,6 +420,11 @@ const LogIn = e => {
                         <label htmlFor="email">Email</label>
                         <input type="email" id='email' name='Email' className=' peer border-b p-2 outline-0'/>
                         <p className="invisible peer-invalid:visible peer-invalid:text-pink-600">Please provide a valid email address.</p>
+                     </div>
+                      <div className='address flex  flex-col my-5'>
+                        <label htmlFor="address">Address</label>
+                        <input type="address" id='address' name='Emaile' className='address-in peer/address border-b p-2 outline-0'/>
+                        <p className="address-p invisible text-pink-600">Please provide a valid address.</p>
                      </div>
                      <div className='pass-div flex  flex-col my-5'>
                         <label htmlFor="Passworde">Password</label>
@@ -403,6 +438,18 @@ const LogIn = e => {
 
                      </div>
                      <div className='con-password flex flex-col my-5'>
+                        <label htmlFor="confirm-password">confirm password</label>
+                        <div className='flex justify-between items-center border-b'>
+                          <input type="password" id='confirm-password' name='confirm-password' className='con-in outline-0 peer/confirm-password p-2' />
+                         <div className=' p-1   cursor-pointer' onClick={eyee2}>
+                         <i className="fa-solid fa-eye cursor-none" id='eye1'></i>
+                        </div>
+                        </div>
+                     
+                        <p className="con-p invisible text-pink-600">password does not match.</p>
+
+                     </div>
+                      <div className='con-password flex flex-col my-5'>
                         <label htmlFor="confirm-password">confirm password</label>
                         <div className='flex justify-between items-center border-b'>
                           <input type="password" id='confirm-password' name='confirm-password' className='con-in outline-0 peer/confirm-password p-2' />

@@ -4,22 +4,36 @@ import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 
 const Recipt = () => {
     let a =1;
-    const [details ,setdetails] = useState();
+    const [details ,setdetails] = useState(undefined);
+    const [name ,setname] = useState();
+    const [address ,setaddress] = useState();
+    const [date ,setdate] = useState();
+    const [invoice ,setinvoice] = useState();
     const {id} = useParams()
-    let arry;
 
     useEffect(() => {
-     arry = JSON.parse(localStorage.getItem('details'))
-     setdetails(arry[id][1])
+     setdetails(JSON.parse(localStorage.getItem('details'))[id])
+     setname(JSON.parse(localStorage.getItem('fullName')))
+     setaddress(JSON.parse(localStorage.getItem('address')))
+     setdate(JSON.parse(localStorage.getItem('details'))[id][0].date)
+     setinvoice(JSON.parse(localStorage.getItem('details'))[id][0].invoice)
 
-    },[])
-    
+    },[id])
+    let som = 0;
 
+    if(details !== undefined){
+    console.log(details[1][1].price)
+ for(let i = 0; i < details[1].length; i++){
+       som += Number(details[1][i].price.slice(1,5));
+       console.log(details[1][i].price.slice(1,5))
+    }
+    console.log(som)
+    }
 
     return ( 
 
         <div className="w-screen pb-20 flex justify-center">
-            <div className="mt-20  p-3 w-101 relative overflow-hidden">
+            <div className="mt-20  p-2 w-105 relative overflow-hidden">
                 <div className='overflow-hidden rounded-full absolute -top-40 -right-40 w-100 '>
                  <img src={coffee} className='w-full h-full' alt="" />
                 </div>
@@ -31,12 +45,12 @@ const Recipt = () => {
 
                 <div className="text-[#7f4221] flex justify-between items-end my-6">
                     <div><p className="font-light">INVOICE TO:</p>
-                      <h4 className="font-extrabold text-2xl">JOHN DOE</h4>
-                      <p className="font-light">123 park Avenue, NY</p>
+                      <h4 className="font-extrabold text-2xl">{name}</h4>
+                      <p className="font-light">{address}</p>
                     </div>
                    <div className="text-[#7f4221] text-[13px] ">
-                     <p >INVOICE NO: <span className="font-light">    8118</span> </p>
-                     <p>DATE: <span className="font-light">    26/03/2021</span></p>
+                     <p >INVOICE NO: <span className="font-light">{invoice}</span> </p>
+                     <p>DATE: <span className="font-light">{date}</span></p>
                    </div>
                 </div> 
 
@@ -49,7 +63,7 @@ const Recipt = () => {
                         <h3 className="w-10 text-[10px] font-bold">PRICE</h3>
                     </div>
                   {details &&  <div className='item-box'>
-                    {details.map( each => (
+                    {details[1].map( each => (
                        <div key={each.id} className="flex justify-between items-center w-full border-b-1 py-2 px-2">
                         <p className="w-8 text-[10px]">{a++}</p>
                         <p className="w-20 text-[12px]">{each.itemName}</p>
@@ -61,7 +75,7 @@ const Recipt = () => {
                     </div>} 
                     
                 </div>
-                <div className='flex justify-between items-start my-17' >
+                <div className='flex justify-between gap-2 items-start my-17' >
                    <div className=''>
                    
                     <div className='text-[12px] flex gap-2 items-center my-1'>
@@ -93,25 +107,21 @@ const Recipt = () => {
                    <div className='w-45'>
                     <div className='w-full border px-3 p-2 flex justify-between items-center'>
                         <p className='text-[10px]'>SUB TOTAL</p>
-                        <p className='text-[10px]'>$10.00</p>
+                        <p className='text-[10px]'>${som}.00</p>
                     </div>
                     <div className='w-full border px-3 p-2 flex justify-between items-center'>
                         <p className='text-[10px]'>VAT(10%)</p>
-                        <p className='text-[10px]'>$10.10</p>
-                    </div>
-                    <div className='w-full border px-3 p-2 flex justify-between items-center'>
-                        <p className='text-[10px]'>DISCOUNT (10%)</p>
-                        <p className='text-[10px]'>$10.10</p>
+                        <p className='text-[10px]'>${som}.{(0.1 * som)}</p>
                     </div>
                     <div className='w-full border px-3  p-1 flex justify-between items-center'>
                         <p className='text-[14px] text-[#7f4221] font-bold'>TOTAL</p>
-                        <p className='text-[14px] text-[#7f4221] font-bold'> $10.10</p>
+                        <p className='text-[14px] text-[#7f4221] font-bold'> ${som}.{(0.1 * som)}</p>
                     </div>
                    </div>
                 </div>
                 <div className="flex justify-center w-full mt-10">
                     
-                <h3>Thank you for the purchase</h3>
+                <h3>Thank you for Your purchase</h3>
                     
                 </div>
             </div>

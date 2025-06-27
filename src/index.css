@@ -7,6 +7,10 @@
   overflow: hidden;
   height: 0;
 }
+.address{
+  overflow: hidden;
+  height: 0;
+}
 .index{
   transform: scale(0);
 }

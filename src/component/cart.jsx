@@ -37,15 +37,21 @@ const Cart = () => {
    
   const confirm = e => {
        const qty = document.querySelector('.Qty')
+       const accButton = document.querySelector('.acc-but')
        const warning = document.querySelector('.warning')
        const itembox = document.querySelector('.itembox')
-
+   
     if(qty.value === ''){
         warning.innerHTML = 'Input the quantity of products purchase'
         warning.classList.add('visible')
         warning.classList.remove('invisible')
     }else if(itembox.children.length < 1){
         warning.innerHTML = 'No product has been selected'
+       warning.classList.add('visible')
+        warning.classList.remove('invisible')
+    }else if(accButton.innerHTML !== 'Details confirmed'){
+
+       warning.innerHTML = 'Confirm your bank details'
        warning.classList.add('visible')
         warning.classList.remove('invisible')
     }else{
@@ -132,14 +138,18 @@ const Cart = () => {
 
 
   }
+
+
  const details1 = (date,time,itembox) => {
                 const one1 = []
                     const one = [];
                     let arry = {}
+                    let invoice  = Math.floor(Math.random() * 10000)
 
                     const date2 = {  
                    time:time,
                    date : date,
+                   invoice:invoice
 
                     }
                     one1.push(date2)
@@ -171,15 +181,20 @@ const Cart = () => {
 
                   setdetails(one1)
           }
+
+
     const details2 = (date,time,itembox) => {
              
                
                 const one = []
                 const one1 = []
+                let invoice  = Math.floor(Math.random() * 10000)
+
 
                 const date2 = {  
                    time:time,
                    date : date,
+                   invoice:invoice
 
                     }
                     one1.push(date2)
@@ -214,12 +229,78 @@ const Cart = () => {
           }
 
 
-      const check = e => {
+
+    //       const cardno = () => {
+    //         const num = document.querySelector('.card-number')
+    //          num.addEventListener('input', ( ) => {
+    //     if(num.value.length === 4){
+    //       num.value += ' '
+    //     }
+    // console.log('hello')
+    //  })
+    //       }
+     
+    //  cardno()
+
+
+  const check = e => {
+        const cardName = document.querySelector('.card-name')
+        const error = document.querySelector('.error')
+        const cardnumber = document.querySelector('.card-number')
+        const cvv = document.querySelector('.cvv')
+
        e.target.innerHTML = 'Checking...'
-       setTimeout(() => {
-       e.target.innerHTML = 'Details Confirmed'
+       if(error.classList.contains('p-2')){
+        const error = document.querySelector('.error')
+        const count = error.children.length
+       error.classList.remove('p-2')
+        error.classList.remove('border')
+      for(let a  = 0; a < count; a++){
+
+         error.children[0].remove()
+      }
         
-       }, 3000);
+        
+       }
+    setTimeout(() => {
+     
+    if(cardName.value === ''){
+      error.classList.add('p-2')
+        error.classList.add('border')
+        let p = document.createElement('p')
+
+          p.innerHTML = 'card name invalid'
+          error.appendChild(p)
+          e.target.innerHTML = 'Check details'
+    };
+    if(cardnumber.value.length < 16){
+      error.classList.add('p-2')
+        error.classList.add('border')
+        let p = document.createElement('p')
+
+         p.innerHTML = 'card number invalid';
+
+          error.appendChild(p)
+          e.target.innerHTML = 'Check details';
+
+    };
+    if(cvv.value.length < 4 || cvv.value.length > 4){
+      error.classList.add('p-2')
+        error.classList.add('border')
+        let p = document.createElement('p')
+
+         p.innerHTML = 'cvv invalid';
+          error.appendChild(p)
+       e.target.innerHTML = 'Check details'
+
+    }
+    if( (cvv.value.length=== 4) && cardnumber.value.length === 16 && cardName.value !== ''){
+       e.target.innerHTML = 'Details confirmed';
+       error.classList.remove('p-2')
+        error.classList.remove('border')
+
+    }
+    }, 3000);
 
 
         }
@@ -373,11 +454,11 @@ const Cart = () => {
                   </div>
                   <div className='my-10'>
                     <p className='text-gray-500'>Name on Card</p>
-                   <input type="text" className='w-full border-0 border-b-1 p-2 outline-none'  placeholder='John peter...'/>
+                   <input type="text" className='card-name w-full border-0 border-b-1 p-2 outline-none'  placeholder='John peter...'/>
                   </div>
                   <div className='my-7'>
                     <p className='text-gray-500'>Card Number</p>
-                    <input type="number" className='w-full border-0 border-b-1 p-2 font-bold outline-none tracking-[7px]' placeholder='...   ...   ...   123'/>
+                    <input type="number" className='card-number w-full border-0 border-b-1 p-2 font-bold outline-none tracking-[2px]' placeholder='...   ...   ...   123'/>
                    
                   </div>
                   <div className='w-40'>
@@ -407,14 +488,22 @@ const Cart = () => {
                             <option value="2028">2028</option>
                             <option value="2029">2029</option>
                             <option value="2030">2030</option>
+                            <option value="2030">2031</option>
+                            <option value="2030">2032</option>
+                            <option value="2030">2033</option>
+                            <option value="2030">2034</option>
+                            <option value="2030">2035</option>
                             
                         </select>
                         
-                        <input type="number" className='w-14 h-9 outline-none border-1 border-gray-400 p-2' />
+                        <input type="number" className=' cvv w-14 h-9 outline-none border-1 border-gray-400 p-2' />
                     </div>
                   </div>
+                  <div className='error rounded-md bg-amber-50 text-50 text-gray-700'>
+                  
+                  </div>
                   <div className='my-2 mt-9 '>
-                  <button onClick={e => check(e)} className=' border-0 outline-none bg-blue-500 hover:bg-blue-400 rounded-md flex justify-center items-center text-white text-lg font-bold py-3 px-5 w-full'>Change Details</button>
+                  <button onClick={e => check(e)} className='acc-but border-0 outline-none bg-blue-500 hover:bg-blue-400 rounded-md flex justify-center items-center text-white text-lg font-bold py-3 px-5 w-full'>Change Details</button>
                   </div>
                  
                 </div>
