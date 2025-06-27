@@ -18,7 +18,7 @@ const History = () => {
     homeHistory.classList.add('h-screen')
     homeHistory.classList.add('overflow-hidden')
     homeHistory.classList.add('pointer-events-none')
-    const data = e.target.parentElement;
+    const data = e.target.parentElement.parentElement;
     const data2 = data.children[0].children[0].innerHTML;
     const data3 = data.children[0].children[2].children[0].innerHTML;
      setnote( `You are about to DELET "${data2}" 

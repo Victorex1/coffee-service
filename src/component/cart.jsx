@@ -273,7 +273,7 @@ const Cart = () => {
           error.appendChild(p)
           e.target.innerHTML = 'Check details'
     };
-    if(cardnumber.value.length < 16){
+    if(cardnumber.value.length !== 16){
       error.classList.add('p-2')
         error.classList.add('border')
         let p = document.createElement('p')
