@@ -1,0 +1,263 @@
+@import "tailwindcss";
+
+
+.full-name{
+  overflow: hidden;
+  height: 0;
+}
+
+.email{
+  overflow: hidden;
+  height: 0;
+}
+.address{
+  overflow: hidden;
+  height: 0;
+}
+.index{
+  transform: scale(0);
+}
+.index2{
+  transform: scale(0);
+}
+.con-password,.seartch{
+  height: 0;
+  overflow: hidden;
+}
+.circle1{
+  animation: load 2s ease-in-out infinite;
+}
+.circle2{
+  animation: load 2s ease-in-out 0.2s infinite;
+
+}
+
+.circle3{
+  animation: load 2s ease-in-out 0.4s infinite;
+
+}
+.blog_roll{
+  animation: rolle 35s linear 2s infinite ;
+}
+@media (min-width:200px){
+@keyframes rolle {
+  0%,100%{
+       transform: translateX(0);
+
+  }
+  5%,95%{
+       transform: translateX(0);
+
+  }
+  45%,55%{
+        transform: translatex(-1150px);
+
+  }
+  50%{
+        transform: translatex(-1150px);
+
+  }
+  
+}
+}
+
+
+@media (min-width:390px) { 
+ @keyframes rolle {
+  0%,100%{
+       transform: translateX(0);
+
+  }
+  5%,95%{
+       transform: translateX(0);
+
+  }
+  45%,55%{
+        transform: translatex(-1135px);
+
+  }
+  50%{
+        transform: translatex(-1135px);
+
+  }
+  
+}}
+
+@media (min-width:430px) { 
+ @keyframes rolle {
+  0%,100%{
+       transform: translateX(0);
+
+  }
+  5%,95%{
+       transform: translateX(0);
+
+  }
+  45%,55%{
+        transform: translatex(-1110px);
+
+  }
+  50%{
+        transform: translatex(-1110px);
+
+  }
+  
+}}
+@media (min-width:540px) { 
+ @keyframes rolle {
+  0%,100%{
+       transform: translateX(0);
+
+  }
+  5%,95%{
+       transform: translateX(0);
+
+  }
+  45%,55%{
+        transform: translatex(-1000px);
+
+  }
+  50%{
+        transform: translatex(-1000px);
+
+  }
+  
+}}
+
+@media (min-width:768px){
+ .roll-container{
+    width: 760px;
+ }
+ @keyframes rolle {
+  0%,100%{
+       transform: translateX(0);
+
+  }
+  5%,95%{
+       transform: translateX(0);
+
+  }
+  45%,55%{
+        transform: translatex(-770px);
+
+  }
+  50%{
+        transform: translatex(-770px);
+
+  }
+  
+}
+}
+@media(min-width:820px){
+  .roll-container{
+    width: 800px;
+ }
+ @keyframes rolle {
+  0%,100%{
+       transform: translateX(0);
+
+  }
+  5%,95%{
+       transform: translateX(0);
+
+  }
+  45%,55%{
+        transform: translatex(-745px);
+
+  }
+  50%{
+        transform: translatex(-745px);
+
+  }
+  
+}
+}
+
+
+@keyframes load {
+  0%,100%{
+    transform: translateY(0);
+    opacity: 70%;
+  }
+  40%{
+    opacity: 30%;
+  }
+  70%{
+    transform: translateY(10px);
+    opacity: 50%;
+  }
+ 
+}
+
+@keyframes scal {
+  0%{
+    transform: scale(0);
+  }
+   100%{
+    transform: scale(1);
+  }
+}
+@keyframes scalE {
+  0%{
+    transform: scale(1);
+  }
+   100%{
+    transform: scale(0);
+  }
+}
+
+
+@keyframes scroll {
+  0%{
+    height:0;
+  }
+  100%{
+    height:110px;
+
+  }
+}
+@keyframes scrollP {
+  0%{
+    height:0;
+  }
+  100%{
+    height:50px;
+
+  }
+}
+@keyframes scrollB{
+   0%{
+    height:100px;
+  }
+  100%{
+    height:0;
+
+  }
+}
+@keyframes scrollC{
+   0%{
+    height:50px;
+  }
+  100%{
+    height:0;
+
+  }
+}
+@keyframes scrollD{
+   0%{
+    width:0;
+  }
+  100%{
+    width:50%;
+
+  }
+}
+@keyframes scrollE{
+   0%{
+    width:50%;
+  }
+  100%{
+    width:0;
+
+  }
+}
