@@ -4,10 +4,10 @@ import {useHistory} from 'react-router-dom'
  
 const Login = () => {
 
-    document.addEventListener("DOMContentLoaded", () => {
-    window.scrollTo(0, 0);
-  });
-         const history = useHistory();
+    window.onload = function() {
+  window.scrollTo(0, 0);
+};
+ const history = useHistory();
 
 const eyee = () => {
 
