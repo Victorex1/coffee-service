@@ -35,7 +35,7 @@ window.onload = function() {
            <div className='absolute top-25 sm:top-35 mx-9 sm:left-5 lg:left-7 lg:top-40'>
              <h2 className="font-[Tangerine] text-6xl font-bold text-[#d7d6d4] sm:text-8xl lg:text-9xl">Best Coffee</h2>
             <p className="text-xs my-2 sm:my-4 text-[#d7d6d4] sm:text-[20px] sm:leading-6 md:mb-10 md:w-130 lg:w-200">it is best to start your day with a cup of coffee.Discover the best flavours coffee you will ever have.We provide the best for our customers.</p>
-            <Link to='/coffee-service/' className= " text-white text-[10px] bg-[#736447] active:bg-[#96835e] px-3 py-2 md:px-4 md:py-3 lg:py-3 lg:px-5 rounded-3xl  hover:bg-[#a6936c] sm:text-[15px] md:text-[17px] lg:text-[20px]">Explor Menue</Link>
+            <Link to='/blog-list' className= " text-white text-[10px] bg-[#736447] active:bg-[#96835e] px-3 py-2 md:px-4 md:py-3 lg:py-3 lg:px-5 rounded-3xl  hover:bg-[#a6936c] sm:text-[15px] md:text-[17px] lg:text-[20px]">Explor Menue</Link>
             </div>
             </div>}
             </section>

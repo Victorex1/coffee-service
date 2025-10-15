@@ -8,7 +8,7 @@ const PageNotFound = () => {
             <h1 className="font-bold text-4xl my-4 text-gray-400 ">404 
                 
             </h1>
-            <Link to='/coffee-service/'>Click to Go back to home</Link>
+            <Link to='/' className='text-blue-600 underline'>Click to Go back to home</Link>
         </div>
      );
 }
