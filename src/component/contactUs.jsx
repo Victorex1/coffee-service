@@ -3,12 +3,13 @@ import woman3 from '../img/woman-coffee3.jpg'
 import coffeeB from '../img/coffeeB.jpg'
 
 const Contact = () => {
-
-    const {data,load,error} = useFetch('https://api.sampleapis.com/coffee/hot')
+  const {data,load,error} = useFetch('https://gist.githubusercontent.com/Victorex1/5078969180986a9312487ea70dd6135d/raw/79d56238faf8e152c837127cbb9a4b4fbfbcfec5/coffee.json');
+    
 window.onload = function() {
     window.scrollTo(0, 0); // x=0, y=0 → scrolls to top-left
   };
 
+  console.log(data)
     return ( 
         <div className='mt-13 w-screen bg-gray-200'>
            
@@ -23,7 +24,7 @@ window.onload = function() {
          {error && <p>{error}</p>}
          {data && 
            <div className=''>
-            <img src={data[4].image} className='w-full h-70 relative sm:h-90 md:h-120 lg:h-150' alt=''/>
+            <img src={data[5].image} className='w-full h-70 relative sm:h-90 md:h-120 lg:h-150' alt=''/>
             <div className='absolute top-30 sm:top-40 lg:top-60 text-center mx-8/10 w-full'>
              <h2 className='text-5xl text-white font-bold sm:w-8/10 mx-auto sm-text-7xl md:text-8xl '>Let's talk</h2>
             <p className='text-white leading-10 px-5 sm:text-3xl my-3'>We will love to know your want, For we serve the best for our customers</p>
